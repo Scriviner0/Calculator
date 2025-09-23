@@ -67,22 +67,21 @@ buttons.forEach(element => {
    
     if(isOp(text)){
       if(operatorSel && (current === "" || justEvaluated )) { operatorSel = text; return;}
-      
+  
       if(first === null) {
           first = current;
         }
-      else if (current != ""){
+      else if (current != "" && operatorSel != null){
              const res = operate(operatorSel, first, current);
         current = String(res);
         first = current;
         updateDisplay(current);
-           }
+       }
 
-
-           operatorSel = text;
-           current="";
-           justEvaluated = false;
-           return;
+       operatorSel = text;
+       current="";
+       justEvaluated = false;
+       return;
         
       
     }
